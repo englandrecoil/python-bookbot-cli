@@ -10,6 +10,8 @@ def main():
         print(e)
         return
     
-    print(f"Found {words_count} total words")
+    chars = get_chars_dict(book_text)
+    for ch in chars:
+        print(f"\'{ch}\': {chars[ch]}")
 
 main()
