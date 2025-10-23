@@ -1,13 +1,3 @@
-def get_book_text(path: str) -> str:
-    if path == "" or path == None:
-        raise Exception("path parameter must be provided!")
-    
-    try:
-        with open(path) as f:
-            return f.read()
-    except Exception as e:
-        raise Exception(f"couldn't open a file: {e}")
-
 def count_num_words(text: str) -> int:
     data = text.split()
     return len(data)
@@ -21,3 +11,13 @@ def get_chars_dict(text: str) -> dict:
         else:
             chars[lowered] = 1
     return chars
+
+def sort_dict(chars):
+    list_of_dicts = []
+    for ch, cnt in chars.items():
+        list_of_dicts.append({"char":ch, "num":cnt})
+    list_of_dicts.sort(reverse=True, key=sort_on)
+    return list_of_dicts
+
+def sort_on(items):
+    return items["num"]
