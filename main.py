@@ -11,7 +11,8 @@ def main():
         return
     
     chars = get_chars_dict(book_text)
-    for ch in chars:
-        print(f"\'{ch}\': {chars[ch]}")
+    for ch, cnt in chars.items():
+        print(f"{repr(ch)}: {cnt}")
+
 
 main()
